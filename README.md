@@ -29,6 +29,7 @@ SoraDB is a custom-built vector storage engine designed to manage and query high
 
 ### ⏳ **In Progress / To Come**:
 - Load embeddings file into vector
+- CLI
 - Cache embeddings onload
 - Figure out HNSW
 - Implement `findTopK` to return the top K most similar vectors for a query
