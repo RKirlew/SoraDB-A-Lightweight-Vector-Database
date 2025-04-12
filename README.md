@@ -28,6 +28,7 @@ SoraDB is a custom-built vector storage engine designed to manage and query high
 - Begin implementing `findTopK` for searching based on cosine similarity
 
 ### ⏳ **In Progress / To Come**:
+- Load embeddings file into vector
 - Implement `findTopK` to return the top K most similar vectors for a query
 - Implement `insert` function for adding vectors with unique IDs
 - Add batch insert and search functionality for efficiency
