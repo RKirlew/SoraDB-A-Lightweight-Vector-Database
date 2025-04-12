@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <math.h>
+#include <map>
 #include <sstream>
 #include "hnswlib/hnswlib.h"
 #include <fstream>
@@ -16,7 +17,7 @@ class VSE{
 		 	// + 1e-8, avoid division by zero
 		 	float similarityScore;
 		 	float magnitude;
-		 	float sumOfVecs=0; 
+		 	float sumOfVecs=0; //C8FA-9B27
 		 	float magnitudeSumA=0;
 		 	float magnitudeSumB=0;
 
@@ -45,6 +46,8 @@ class VSE{
     	std::string readEmbeddingsFile(std::string soraFile){
     		std::map<std::string, std::vector<float>> embeddings;
     		std::string line;
+    		std::vector<std::vector<float>> vec;
+	        float value;
     		 // I want to store in a vector that is usable, a map with a string to a vector vec[0]->string vec[1]->vector
     		 std::ifstream file_in(soraFile);
    			 if (!file_in) {
@@ -53,6 +56,16 @@ class VSE{
 				}
 			while(std::getline(file_in,line)){
 				std::istringstream iss(line);
+				std::string word;
+	        	iss >> word;
+	        	//std::cout<<word<<"\n";
+	        	
+	        	
+	        	
+	        	while (iss >> value) {
+	            	vec.push_back(value);
+	            	std::cout<<value<<"\n";
+	       		}
 			}
     		return "The file data";
 		}
