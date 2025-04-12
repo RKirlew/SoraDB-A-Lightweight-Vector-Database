@@ -10,11 +10,11 @@ class VSE{
 	public:
 		
 		int dim = 50;               // Dimension of the elements
-    	int max_elements = 400001;   // Maximum number of elements, should be known beforehand
-    	int M = 16;                 // Tightly connected with internal dimensionality of the data
-                                // strongly affects the memory consumption
-        std::string hnsw_path = "hnsw.bin";
-    	int ef_construction = 200;  // Controls index search speed/build speed tradeoff
+	    	int max_elements = 400001;   // Maximum number of elements, should be known beforehand
+	    	int M = 16;                 // Tightly connected with internal dimensionality of the data
+	                                // strongly affects the memory consumption
+	        std::string hnsw_path = "hnsw.bin";
+	    	int ef_construction = 200;  // Controls index search speed/build speed tradeoff
 
     	// Initing index
     
