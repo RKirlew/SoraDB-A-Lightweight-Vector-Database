@@ -43,31 +43,32 @@ class VSE{
         	return vectorStorage[id];
     	}
     	
-    	std::string readEmbeddingsFile(std::string soraFile){
-    		std::map<std::string, std::vector<float>> embeddings;
-    		std::string line;
-    		std::vector<std::vector<float>> vec;
+	std::unordered_map<std::string, std::vector<float>> loadEmbeddings(const std::string& filename) {
+	    std::unordered_map<std::string, std::vector<float>> embeddings;
+	    std::ifstream file(filename);
+	    
+	    if (!file.is_open()) {
+	        std::cerr << "Failed to open the embedding file: " << filename << std::endl;
+	        return embeddings;
+	    }
+
+    	std::string line;
+    	while (std::getline(file, line)) {
+	        std::istringstream iss(line);
+	        std::string word;
+	        iss >> word;
+	
+	        std::vector<float> vec;
 	        float value;
-    		 // I want to store in a vector that is usable, a map with a string to a vector vec[0]->string vec[1]->vector
-    		 std::ifstream file_in(soraFile);
-   			 if (!file_in) {
-					std::cerr << "Could not open the file.\n";
-        			return "Could not open the file.\n";
-				}
-			while(std::getline(file_in,line)){
-				std::istringstream iss(line);
-				std::string word;
-	        	iss >> word;
-	        	//std::cout<<word<<"\n";
-	        	
-	        	
-	        	
-	        	while (iss >> value) {
-	            	vec.push_back(value);
-	            	std::cout<<value<<"\n";
-	       		}
-			}
-    		return "The file data";
-		}
+	        while (iss >> value) {
+	            vec.push_back(value);
+	        }
+	
+	        if (!word.empty() && !vec.empty()) {
+	            embeddings[word] = vec;
+	        }
+	    }
+    	return embeddings;
+ 	}
 
 };
