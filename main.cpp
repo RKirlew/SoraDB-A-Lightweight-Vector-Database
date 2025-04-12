@@ -10,6 +10,20 @@ int main(int argc, char** argv) {
     std::vector<float> b = {4.0f, 5.0f, 6.0f};
     
     std::cout << "Similarity score = " << v.cosineSimilarity(a, b) << std::endl;
-    
+
+
+    auto embeddings = v.loadEmbeddings("embeddings/glove.6B.50d.txt");
+
+    std::string query = "banana";
+    if (embeddings.count(query)) {
+        std::cout << query << " ? [ ";
+        for (float v : embeddings[query]) {
+            std::cout << v << " ";
+        }
+        std::cout << "]\n";
+    } else {
+        std::cout << query << " not found.\n";
+    }
+
     return 0;
 }
