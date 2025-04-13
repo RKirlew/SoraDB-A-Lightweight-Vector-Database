@@ -28,7 +28,7 @@ class VSE{
 		 	// + 1e-8, avoid division by zero
 		 	float similarityScore;
 		 	float magnitude;
-		 	float sumOfVecs=0; //C8FA-9B27
+		 	float sumOfVecs=0; 
 		 	float magnitudeSumA=0;
 		 	float magnitudeSumB=0;
 
